@@ -6,25 +6,24 @@
   <title>Zilin Song — Natural Hazard Monitoring & Geophysical AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #EEF4FA;
-      --white:     #FFFFFF;
-      --navy:      #12263F;
-      --mid:       #2E4A60;
-      --muted:     #4A6080;
-      --faint:     #7090A8;
-      --accent:    #1E8EA6;
-      --accent-lt: #E6F4F7;
-      --border:    #D4E4F0;
-      --surface:   #EEF4FA;
+      --bg:      #EEF4FA;
+      --white:   #FFFFFF;
+      --navy:    #12263F;
+      --mid:     #2E4A60;
+      --muted:   #4A6080;
+      --faint:   #7090A8;
+      --accent:  #1E8EA6;
+      --aclt:    #E6F4F7;
+      --border:  #D4E4F0;
+      --surf:    #EEF4FA;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
@@ -34,310 +33,270 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ─────────────────────────────────────────────── */
+    /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.94);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 0 6%; height: 58px;
-      display: flex; align-items: center; gap: 2rem;
+      height: 56px; padding: 0 6%;
+      display: flex; align-items: center;
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
       font-size: 17px; font-weight: 700;
       color: var(--navy); text-decoration: none;
-      letter-spacing: -0.01em; flex-shrink: 0;
     }
-    .nav-links { display: flex; gap: 2rem; margin-left: auto; }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: 28px; margin-left: auto;
+    }
     .nav-links a {
       font-size: 12px; color: var(--muted);
       text-decoration: none; letter-spacing: 0.04em;
+      line-height: 56px;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
     .nav-cta {
       font-size: 12px; color: var(--accent);
-      border: 1px solid var(--accent); padding: 5px 16px;
-      border-radius: 4px; text-decoration: none;
-      transition: background 0.2s, color 0.2s; letter-spacing: 0.03em;
+      border: 1px solid var(--accent);
+      padding: 5px 16px; border-radius: 4px;
+      text-decoration: none; line-height: normal;
+      transition: background 0.2s, color 0.2s;
     }
     .nav-cta:hover { background: var(--accent); color: #fff; }
 
-    /* ── HERO ────────────────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
       background: var(--white);
-      padding: 72px 6% 64px;
       border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 200px;
-      gap: 60px; align-items: center;
+      padding: 64px 6% 52px;
     }
-
+    .hero-namerow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 16px;
+    }
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: 48px; font-weight: 700;
-      color: var(--navy); line-height: 1.05;
-      letter-spacing: -0.02em; margin-bottom: 12px;
+      font-size: 52px; font-weight: 700;
+      color: var(--navy); line-height: 1;
+      letter-spacing: -0.02em;
     }
-
+    .photo-circle {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+      border: 2px solid var(--border);
+      background: var(--surf);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .photo-circle img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .photo-placeholder {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; color: var(--faint);
+    }
     .hero-role {
       font-size: 11px; letter-spacing: 0.12em;
-      color: var(--accent); margin-bottom: 6px;
+      color: var(--accent); margin-bottom: 5px;
     }
-
     .hero-affil {
       font-size: 13px; color: var(--muted);
-      margin-bottom: 28px; line-height: 1.6;
+      margin-bottom: 22px;
     }
     .hero-affil a {
       color: var(--navy); text-decoration: none;
       border-bottom: 1px solid var(--border);
-      transition: border-color 0.2s, color 0.2s;
+      transition: color 0.2s, border-color 0.2s;
     }
     .hero-affil a:hover { color: var(--accent); border-color: var(--accent); }
-
     .hero-bio {
       font-size: 14.5px; color: var(--mid);
-      line-height: 1.85; max-width: 520px;
-      margin-bottom: 28px;
+      line-height: 1.85; max-width: 680px;
+      margin-bottom: 24px;
     }
-
-    .kw-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .kw-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
     .kw {
-      font-size: 11px; letter-spacing: 0.04em;
-      background: var(--surface); border: 1px solid var(--border);
+      font-size: 11px; letter-spacing: 0.03em;
+      background: var(--surf); border: 1px solid var(--border);
       color: var(--muted); padding: 5px 13px; border-radius: 3px;
-      transition: border-color 0.2s, color 0.2s;
     }
-    .kw:hover { border-color: var(--accent); color: var(--accent); }
-    .kw.hi {
-      background: var(--accent-lt);
-      border-color: var(--accent); color: var(--accent);
+    .kw.hi { background: var(--aclt); border-color: var(--accent); color: var(--accent); }
+
+    .scroll-cta {
+      display: inline-flex; flex-direction: column;
+      align-items: center; gap: 4px;
+      cursor: pointer; color: var(--faint);
+      font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .scroll-cta:hover { color: var(--accent); }
+    .scroll-arrow {
+      font-size: 18px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(5px); }
     }
 
-    /* ── HERO PHOTO ──────────────────────────────────────── */
-    .hero-photo {
-      display: flex; align-items: center; justify-content: center;
-    }
-    .photo-circle {
-      width: 168px; height: 168px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 2px dashed var(--border);
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 8px;
-      flex-shrink: 0;
-      /* Remove border and flex styling once you add a real <img> */
-    }
-    .photo-circle img {
-      width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
-    }
-    .photo-initials {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px; font-weight: 700; color: var(--faint);
-    }
-    .photo-hint {
-      font-size: 9px; color: var(--faint);
-      letter-spacing: 0.08em; text-align: center;
-    }
-
-    /* ── SHARED SECTION ──────────────────────────────────── */
+    /* ── SECTION ── */
     .section { padding: 72px 6%; border-bottom: 1px solid var(--border); }
-    .section.white { background: var(--white); }
+    .section.white  { background: var(--white); }
     .section.tinted { background: var(--bg); }
-
-    .eyebrow {
-      font-size: 10px; letter-spacing: 0.14em;
-      color: var(--accent); margin-bottom: 8px;
-    }
+    .eyebrow { font-size: 10px; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 8px; }
     .sec-title {
       font-family: 'Playfair Display', serif;
-      font-size: 30px; font-weight: 700;
-      color: var(--navy); margin-bottom: 8px;
+      font-size: 30px; font-weight: 700; color: var(--navy); margin-bottom: 8px;
     }
-    .sec-sub {
-      font-size: 13px; color: var(--muted);
-      max-width: 580px; line-height: 1.75;
-      margin-bottom: 48px;
-    }
+    .sec-sub { font-size: 13px; color: var(--muted); max-width: 620px; line-height: 1.75; margin-bottom: 48px; }
 
-    /* ── RESEARCH — staggered editorial layout ───────────── */
+    /* ── RESEARCH BLOCKS ── */
     .rblock {
-      display: grid;
-      grid-template-columns: 5fr 6fr;
-      gap: 0;
-      margin-bottom: 6px;
-      align-items: stretch;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--white);
-      transition: box-shadow 0.25s;
+      display: grid; grid-template-columns: 5fr 6fr;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      margin-bottom: 18px;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease,
+                  box-shadow 0.3s ease;
     }
-    .rblock:last-child { margin-bottom: 0; }
-    .rblock:hover { box-shadow: 0 4px 28px rgba(18,38,63,0.07); }
-    .rblock + .rblock { margin-top: 18px; }
+    .rblock.visible { opacity: 1; transform: translateY(0); }
+    .rblock:hover   { box-shadow: 0 12px 36px rgba(18,38,63,0.09); transform: translateY(-4px); }
+    .rblock.visible:hover { transform: translateY(-4px); }
 
     .rblock.flip { grid-template-columns: 6fr 5fr; }
     .rblock.flip .r-visual { order: 2; border-left: 1px solid var(--border); border-right: none; }
-    .rblock.flip .r-info   { order: 1; border-right: none; padding-left: 0; padding-right: 0; }
+    .rblock.flip .r-info   { order: 1; }
 
-    /* Visual column: image + caption as one unit */
     .r-visual {
-      background: var(--surface);
-      border-right: 1px solid var(--border);
+      background: var(--surf); border-right: 1px solid var(--border);
       display: flex; flex-direction: column;
-      padding: 28px;
-      gap: 0;
+      padding: 24px; gap: 0;
     }
     .r-figure {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: #ddeaf5;
-      border-radius: 6px;
-      border: 1.5px dashed #bad3e8;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 8px;
-      flex-shrink: 0;
-      /* ─── Replace this div with:
-         <img src="images/fig-01.png" alt="…"
-              style="width:100%;aspect-ratio:4/3;object-fit:contain;border-radius:6px;">
-      ─── */
+      width: 100%; flex: 1;
+      background: #ddeaf5; border-radius: 7px;
+      overflow: hidden; min-height: 160px;
+      display: flex; align-items: center; justify-content: center;
     }
-    .r-fig-icon {
-      width: 28px; height: 28px;
-      border: 1.5px dashed #7090A8; border-radius: 4px;
+    .r-figure img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      border-radius: 7px;
+      display: block;
     }
-    .r-fig-hint { font-size: 10px; color: var(--faint); letter-spacing: 0.08em; }
     .r-caption {
-      font-size: 11px; color: var(--faint);
-      line-height: 1.5; padding: 10px 2px 0;
-      font-style: italic; letter-spacing: 0.01em;
+      font-size: 10.5px; color: var(--faint);
+      line-height: 1.55; padding: 9px 0 0;
+      font-style: italic;
+    }
+    .r-refs {
+      font-size: 10px; color: var(--faint);
+      line-height: 1.6; padding: 8px 0 0;
+      border-top: 1px solid var(--border); margin-top: 8px;
     }
 
-    /* Info column */
     .r-info {
-      padding: 36px 38px;
+      padding: 32px 34px;
       display: flex; flex-direction: column;
       justify-content: center; gap: 12px;
-      position: relative;
+      position: relative; overflow: hidden;
     }
     .r-num {
-      font-size: 72px; font-weight: 700;
+      position: absolute; top: 12px; right: 20px;
       font-family: 'Playfair Display', serif;
-      color: var(--accent); opacity: 0.08;
-      line-height: 1; position: absolute;
-      top: 18px; right: 28px;
-      pointer-events: none; user-select: none;
+      font-size: 80px; font-weight: 700;
+      color: var(--accent); opacity: 0.06;
+      line-height: 1; pointer-events: none; user-select: none;
     }
-    .r-dir {
-      font-size: 10px; letter-spacing: 0.12em;
-      color: var(--accent);
-    }
+    .r-dir  { font-size: 10px; letter-spacing: 0.12em; color: var(--accent); }
     .r-title {
       font-family: 'Playfair Display', serif;
       font-size: 17px; font-weight: 700;
       color: var(--navy); line-height: 1.35;
     }
-    .r-body {
-      font-size: 13px; color: var(--muted);
-      line-height: 1.75;
-    }
+    .r-body { font-size: 13px; color: var(--muted); line-height: 1.78; }
     .kp-row { display: flex; flex-wrap: wrap; gap: 6px; }
     .kp {
-      font-size: 10px; background: var(--surface);
+      font-size: 10px; background: var(--surf);
       border: 1px solid var(--border); color: #2B5A7A;
-      padding: 3px 10px; border-radius: 3px;
-      letter-spacing: 0.02em;
+      padding: 3px 10px; border-radius: 3px; letter-spacing: 0.02em;
     }
 
-    /* ── PUBLICATIONS ────────────────────────────────────── */
-    .pub-list { display: flex; flex-direction: column; gap: 20px; }
-
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 18px; }
     .pub-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--white); border: 1px solid var(--border);
       border-radius: 12px; overflow: hidden;
       display: grid; grid-template-columns: 200px 1fr;
-      transition: box-shadow 0.25s;
+      transition: box-shadow 0.3s;
     }
-    .pub-card:hover { box-shadow: 0 4px 28px rgba(18,38,63,0.07); }
-
+    .pub-card:hover { box-shadow: 0 10px 30px rgba(18,38,63,0.08); }
     .pub-visual {
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-      padding: 22px; display: flex;
-      flex-direction: column; gap: 0;
-      align-items: stretch;
+      background: var(--surf); border-right: 1px solid var(--border);
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
     }
-    .pub-fig {
-      width: 100%; aspect-ratio: 1;
-      background: #ddeaf5;
-      border-radius: 6px;
-      border: 1.5px dashed #bad3e8;
-      display: flex; align-items: center; justify-content: center;
-      /* ─── Replace with <img src="…"> once you have the figure ─── */
+    .pub-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pub-visual-ph {
+      width: 100%; height: 100%; min-height: 160px;
+      background: #ddeaf5; display: flex;
+      align-items: center; justify-content: center;
     }
-    .pub-fig-hint { font-size: 9px; color: var(--faint); letter-spacing: 0.08em; }
-    .pub-fig-caption {
-      font-size: 10px; color: var(--faint);
-      font-style: italic; padding: 8px 0 0;
-      line-height: 1.4;
-    }
-
-    .pub-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+    .pub-ph-txt { font-size: 9px; color: var(--faint); letter-spacing: 0.08em; }
+    .pub-body { padding: 22px 26px; display: flex; flex-direction: column; gap: 7px; justify-content: center; }
     .pub-year { font-size: 10px; letter-spacing: 0.1em; color: var(--accent); }
     .pub-title { font-size: 14px; font-weight: 500; color: var(--navy); line-height: 1.45; }
     .pub-badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
     .badge { font-size: 10px; padding: 2px 9px; border-radius: 3px; font-weight: 500; letter-spacing: 0.02em; }
-    .badge.nat { background: #E8F4EE; color: #1A6B3A; border: 1px solid #A8D4B8; }
-    .badge.idx { background: var(--surface); color: #2B5A7A; border: 1px solid var(--border); }
+    .badge.nat  { background: #E8F4EE; color: #1A6B3A; border: 1px solid #A8D4B8; }
+    .badge.idx  { background: var(--surf); color: #2B5A7A; border: 1px solid var(--border); }
     .badge.note { background: #FFF8E6; color: #7A5C1A; border: 1px solid #E8C96A; }
-    .pub-authors { font-size: 12px; color: var(--faint); line-height: 1.6; }
+    .pub-authors { font-size: 12px; color: var(--faint); line-height: 1.65; }
     .pub-authors strong { color: var(--navy); font-weight: 500; }
-    .pub-abstract {
-      font-size: 12px; color: var(--muted); line-height: 1.7;
-      font-style: italic;
-      border-left: 2px solid var(--accent); padding-left: 10px;
-    }
     .pub-doi { font-size: 11px; }
     .pub-doi a { color: var(--accent); text-decoration: none; }
     .pub-doi a:hover { text-decoration: underline; }
 
-    /* ── SKILLS & EXPERIENCE ─────────────────────────────── */
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 30px; }
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
     .skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
     .skill-card-title { font-size: 10px; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 14px; }
     .pills { display: flex; flex-wrap: wrap; gap: 7px; }
-    .pill { font-size: 12px; background: var(--surface); border: 1px solid var(--border); color: #2B5A7A; padding: 4px 11px; border-radius: 4px; }
-    .pill.hi { background: var(--accent-lt); border-color: var(--accent); color: var(--accent); }
+    .pill { font-size: 12px; background: var(--surf); border: 1px solid var(--border); color: #2B5A7A; padding: 4px 11px; border-radius: 4px; }
+    .pill.hi { background: var(--aclt); border-color: var(--accent); color: var(--accent); }
 
-    .exp-block { margin-bottom: 28px; }
-    .exp-label { font-size: 10px; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px; }
-    .timeline { background: var(--white); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .titem { display: flex; border-bottom: 1px solid var(--border); }
-    .titem:last-child { border-bottom: none; }
-    .tyear {
-      font-size: 11px; color: var(--accent); font-weight: 500;
-      min-width: 90px; padding: 15px 16px;
-      background: var(--surface); border-right: 1px solid var(--border);
-      display: flex; align-items: flex-start; padding-top: 17px;
-      flex-shrink: 0; letter-spacing: 0.02em;
+    /* ── TIMELINE ── */
+    .exp-block { margin-bottom: 32px; }
+    .exp-label { font-size: 10px; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 16px; }
+
+    .tl { position: relative; padding-left: 20px; }
+    .tl::before {
+      content: '';
+      position: absolute; left: 6px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--border);
     }
-    .tbody { padding: 14px 20px; flex: 1; }
-    .tbody-main { font-size: 13px; color: var(--navy); font-weight: 500; margin-bottom: 3px; line-height: 1.4; }
-    .tbody-sub { font-size: 12px; color: var(--faint); line-height: 1.6; }
+    .tl-item { position: relative; padding: 0 0 22px 24px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: '';
+      position: absolute; left: -14px; top: 6px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--accent);
+    }
+    .tl-year { font-size: 11px; color: var(--accent); font-weight: 500; letter-spacing: 0.04em; margin-bottom: 2px; }
+    .tl-main { font-size: 13px; color: var(--navy); font-weight: 500; line-height: 1.4; }
+    .tl-inst { font-size: 12px; color: var(--faint); }
+    .tl-sub  { font-size: 12px; color: var(--faint); margin-top: 3px; line-height: 1.55; }
 
-    /* ── CONTACT ─────────────────────────────────────────── */
+    /* ── CONTACT ── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-    .contact-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: 21px; font-weight: 700; color: var(--navy);
-      margin-bottom: 14px; line-height: 1.3;
-    }
     .contact-blurb { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 28px; }
     .contact-blurb em { color: var(--accent); font-style: normal; font-weight: 500; }
     .contact-details { display: flex; flex-direction: column; gap: 12px; }
@@ -347,47 +306,45 @@
     .cdet-val a { color: var(--accent); text-decoration: none; }
     .cdet-val a:hover { text-decoration: underline; }
 
-    .form-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
-    .form-intro { font-size: 14px; color: var(--mid); line-height: 1.8; margin-bottom: 24px; }
+    .form-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 30px; }
+    .form-intro { font-size: 14px; color: var(--mid); line-height: 1.8; margin-bottom: 22px; }
     .form-intro em { color: var(--accent); font-style: normal; font-weight: 500; }
-    .fg { margin-bottom: 16px; }
+    .fg { margin-bottom: 15px; }
     .fl { display: block; font-size: 10px; letter-spacing: 0.08em; color: var(--faint); margin-bottom: 6px; }
     .fi, .ft {
       width: 100%; padding: 10px 14px;
       border: 1px solid var(--border); border-radius: 6px;
       font-family: 'Inter', sans-serif; font-size: 13px;
-      color: var(--navy); background: var(--surface);
+      color: var(--navy); background: var(--surf);
       transition: border-color 0.2s, background 0.15s; outline: none;
     }
     .fi:focus, .ft:focus { border-color: var(--accent); background: var(--white); }
-    .ft { resize: vertical; min-height: 110px; }
+    .ft { resize: vertical; min-height: 108px; }
     .fsub {
       width: 100%; background: var(--accent); color: #fff;
-      border: none; padding: 12px 24px; border-radius: 6px;
+      border: none; padding: 11px; border-radius: 6px;
       font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
       cursor: pointer; transition: background 0.2s; letter-spacing: 0.03em;
     }
     .fsub:hover { background: #177a90; }
     .form-success {
-      display: none; padding: 14px; border-radius: 6px; margin-top: 14px;
+      display: none; padding: 14px; border-radius: 6px; margin-top: 12px;
       background: #E8F4EE; border: 1px solid #A8D4B8;
       color: #1A6B3A; font-size: 13px; text-align: center;
     }
 
-    /* ── RESPONSIVE ──────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; gap: 36px; }
-      .hero-photo { justify-content: flex-start; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-name { font-size: 36px; }
+      .photo-circle { width: 200px; height: 200px; }
       .rblock, .rblock.flip { grid-template-columns: 1fr; }
-      .rblock .r-visual,
-      .rblock.flip .r-visual {
-        order: 0 !important; border-right: none !important;
-        border-left: none !important;
+      .rblock .r-visual, .rblock.flip .r-visual {
+        order: 0 !important; border-right: none !important; border-left: none !important;
         border-bottom: 1px solid var(--border);
       }
       .rblock.flip .r-info { order: 1 !important; }
       .pub-card { grid-template-columns: 1fr; }
-      .pub-visual { border-right: none; border-bottom: 1px solid var(--border); }
+      .pub-visual { min-height: 160px; border-right: none; border-bottom: 1px solid var(--border); }
       .skills-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
     }
@@ -395,7 +352,7 @@
 </head>
 <body>
 
-<!-- ═══════ NAV ═══════════════════════════════════════════ -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Zilin Song</a>
   <div class="nav-links">
@@ -406,80 +363,81 @@
   </div>
 </nav>
 
-<!-- ═══════ HERO ══════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
-  <div>
+  <div class="hero-namerow">
     <h1 class="hero-name">Zilin Song</h1>
-
-    <p class="hero-role">POSTDOCTORAL RESEARCH ASSOCIATE</p>
-
-    <p class="hero-affil">
-      <a href="https://ai4netzero.github.io/team/" target="_blank">AI4NetZero</a>
-      &nbsp;·&nbsp;
-      <a href="https://www.hw.ac.uk/schools/energy-geoscience-infrastructure-society.htm" target="_blank">Heriot-Watt University</a>,
-      Edinburgh, UK
-    </p>
-
-    <p class="hero-bio">
-      I am an early-career postdoctoral researcher working at the intersection of
-      <strong style="color:var(--navy); font-weight:500">natural hazard monitoring</strong>
-      and geophysical machine learning. I specialise in
-      <strong style="color:var(--navy); font-weight:500">volcanic seismology characterisation</strong>
-      — understanding the physical processes that connect deep seismicity to volcanic unrest
-      and eruption potential. A parallel line of work develops
-      <strong style="color:var(--navy); font-weight:500">transferable AI frameworks</strong>
-      for seismic monitoring, with a focus on model generalisation and cross-domain transfer learning
-      across diverse geological settings.
-    </p>
-
-    <div class="kw-row">
-      <span class="kw hi">Volcanic Seismology</span>
-      <span class="kw hi">Transfer Learning</span>
-      <span class="kw">Natural Hazard Monitoring</span>
-      <span class="kw">Deep Learning</span>
-      <span class="kw">Induced Seismicity</span>
-      <span class="kw">Geophysical AI</span>
+    <div class="photo-circle">
+      <!--
+        Place your photo as: images/photo.jpg
+        Then replace the line below with:
+        <img src="images/photo.jpg" alt="Zilin Song">
+      -->
+      <img src="images/photo.jpg" alt="Zilin Song">
     </div>
   </div>
 
-  <div class="hero-photo">
-    <div class="photo-circle">
-      <!--
-        ── Once you have a photo, replace the two lines below with:
-           <img src="images/photo.jpg" alt="Zilin Song">
-        ── The photo-circle container handles the crop automatically.
-      -->
-      <div class="photo-initials">ZS</div>
-      <div class="photo-hint">PHOTO</div>
-    </div>
+  <p class="hero-role">POSTDOCTORAL RESEARCH ASSOCIATE</p>
+  <p class="hero-affil">
+    <a href="https://ai4netzero.github.io/team/" target="_blank">AI4NetZero</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.hw.ac.uk/schools/energy-geoscience-infrastructure-society.htm" target="_blank">Heriot-Watt University</a>,
+    Edinburgh, UK
+  </p>
+
+  <p class="hero-bio">
+    I am an early-career postdoctoral researcher working at the intersection of natural hazard monitoring and geophysical machine learning. I specialise in volcanic seismology characterisation — understanding the physical processes that connect long-period earthquakes to volcanic unrest and eruption potential. A parallel line of work develops transferable AI frameworks for seismic monitoring, with a focus on model generalisation and cross-domain transfer learning across diverse geological settings.
+  </p>
+
+  <div class="kw-row">
+    <span class="kw hi">Volcanic Seismology</span>
+    <span class="kw hi">Transfer Learning</span>
+    <span class="kw">Natural Hazard Monitoring</span>
+    <span class="kw">Deep Learning</span>
+    <span class="kw">Induced Seismicity</span>
+    <span class="kw">Geophysical AI</span>
+  </div>
+
+  <div class="scroll-cta" onclick="document.getElementById('research').scrollIntoView({behavior:'smooth'})">
+    <span>What I Work On</span>
+    <div class="scroll-arrow">↓</div>
   </div>
 </section>
 
-<!-- ═══════ RESEARCH ══════════════════════════════════════ -->
+<!-- RESEARCH -->
 <section class="section tinted" id="research">
   <p class="eyebrow">WHAT I WORK ON</p>
   <h2 class="sec-title">Research</h2>
-  <p class="sec-sub">Three interconnected directions — transferable AI for seismic monitoring, deep long-period earthquake characterisation, and LP microseismicity as a window into volcanic fluid dynamics.</p>
+  <p class="sec-sub">Three interconnected directions — transferable AI for seismic monitoring, deep long-period earthquake (DLP) characterisation, and microseismicity as a window into volcanic eruption precursors.</p>
 
   <!-- Direction 01 -->
   <div class="rblock">
     <div class="r-visual">
       <div class="r-figure">
-        <div class="r-fig-icon"></div>
-        <div class="r-fig-hint">YOUR FIGURE</div>
+        <!--
+          Save the F1 bar chart as: images/fig-dir1.png
+          Then replace with: <img src="images/fig-dir1.png" alt="F1 scores comparison">
+        -->
+        <img src="images/fig-dir1.png" alt="F1 scores comparison">
       </div>
-      <p class="r-caption">e.g. F1 score comparison across pretrained models / transfer learning architecture schematic</p>
+      <p class="r-caption">F1 scores for P- and S-phase picking. PhaseNet [6] and EQTransformer [3] architectures are categorised by blue and red colour schemes, respectively.</p>
+      <div class="r-refs">
+        [3] Mousavi et al. (2020). <em>Nature Communications</em>, 11, 3952.<br>
+        [4] Münchmeyer et al. (2022). <em>JGR: Solid Earth</em>, 127, e2021JB023499.<br>
+        [5] Zhong &amp; Tan (2024). <em>Geophysical Research Letters</em>, 51, e2024GL108438.<br>
+        [6] Zhu &amp; Beroza (2019). <em>Geophysical Journal International</em>, 216, 261–273.
+      </div>
     </div>
     <div class="r-info">
       <div class="r-num">01</div>
       <div class="r-dir">DIRECTION 01</div>
       <h3 class="r-title">Cross-Domain Transfer Learning for Seismic Phase Detection</h3>
-      <p class="r-body">Volcanic-pretrained deep-learning pickers achieve F1 = 0.93 on ~140k induced seismic waveforms — consistently outperforming tectonic-pretrained models despite smaller training sets. The performance advantage stems from superior morphological diversity in volcanic data, and fine-tuning with as little as 10% local waveforms is sufficient to calibrate model confidence in data-limited settings such as enhanced geothermal systems and CO₂ geological storage.</p>
+      <p class="r-body">We assess the performance of deep-learning seismic pickers using ~140k induced waveforms to understand model generalization. This study bridges the gap between model learning and practical transferability, offering a blueprint for designing efficient monitoring tools in resource-constrained settings.</p>
       <div class="kp-row">
-        <span class="kp">EQTransformer · PhaseNet</span>
-        <span class="kp">F1 = 0.93</span>
-        <span class="kp">Geothermal · CCS</span>
-        <span class="kp">Data-limited monitoring</span>
+        <span class="kp">AI-driven seismic monitoring</span>
+        <span class="kp">Model generalisation</span>
+        <span class="kp">Transfer learning</span>
+        <span class="kp">Seismology</span>
       </div>
     </div>
   </div>
@@ -488,21 +446,25 @@
   <div class="rblock flip">
     <div class="r-visual">
       <div class="r-figure">
-        <div class="r-fig-icon"></div>
-        <div class="r-fig-hint">YOUR FIGURE</div>
+        <!--
+          Save the Sierra Negra multi-panel figure as: images/fig-dir2.png
+          Then replace with: <img src="images/fig-dir2.png" alt="Sierra Negra seismicity">
+        -->
+        <img src="images/fig-dir2.png" alt="Sierra Negra seismicity">
       </div>
-      <p class="r-caption">e.g. LP catalogue depth-time plot across Alaska volcanoes / spectral comparison with VT seismicity</p>
+      <p class="r-caption">Temporal evolution of seismic activity and surface displacement at Sierra Negra Volcano on 26 June 2018 (Song et al., 2026).</p>
     </div>
     <div class="r-info">
       <div class="r-num">02</div>
       <div class="r-dir">DIRECTION 02</div>
-      <h3 class="r-title">Deep Long-Period Earthquakes as Volcanic Unrest Indicators</h3>
-      <p class="r-body">Systematic characterisation of deep LP earthquakes across Alaska volcanoes over twelve years shows that LP seismicity consistently outperforms volcano-tectonic earthquakes as a proxy for magmatic flux — closely tracking geodetically-constrained magma influx events at multiple volcanic centres where VT seismicity shows weaker coupling.</p>
+      <h3 class="r-title">ML-Detected Precursory Seismic Signals at Caldera Volcanoes</h3>
+      <p class="r-body">Machine-learning detection applied to continuous seismic records reveals a rich catalogue of long-period microseismicity including hidden precursory signals invisible to conventional monitoring. At Sierra Negra Volcano, Galápagos. This seismicity reflects a cryptic phase of fluid activity in the volcanic edifice prior to eruption — demonstrating that ML-enhanced monitoring can uncover seismic signatures of subsurface fluid dynamics and eruption precursors at caldera systems.</p>
       <div class="kp-row">
-        <span class="kp">DLP earthquakes</span>
-        <span class="kp">Alaska volcanoes</span>
-        <span class="kp">12-year catalogue</span>
-        <span class="kp">LP vs VT comparison</span>
+        <span class="kp">ML-enhanced catalogue</span>
+        <span class="kp">Precursory LP signals</span>
+        <span class="kp">Fluid activity</span>
+        <span class="kp">Sierra Negra · Galápagos</span>
+        <span class="kp">Caldera eruptions</span>
       </div>
     </div>
   </div>
@@ -511,41 +473,45 @@
   <div class="rblock">
     <div class="r-visual">
       <div class="r-figure">
-        <div class="r-fig-icon"></div>
-        <div class="r-fig-hint">YOUR FIGURE</div>
+        <!--
+          Save the violin/box plot figure as: images/fig-dir3.png
+          Then replace with: <img src="images/fig-dir3.png" alt="DLP vs VT comparison">
+        -->
+        <img src="images/fig-dir3.png" alt="DLP vs VT comparison">
       </div>
-      <p class="r-caption">e.g. earthquake-triggered fluid activity timeline / Galápagos LP seismicity catalogue and caldera event correlation</p>
+      <p class="r-caption">Properties of earthquakes at Akutan Volcano from 2005 to 2017. Event rates (a) and moment release rates (b) of deep long-period earthquakes (DLPs) (purple) and volcano-tectonic earthquakes (VTs) (black) during inflation and non-inflation periods.</p>
     </div>
     <div class="r-info">
       <div class="r-num">03</div>
       <div class="r-dir">DIRECTION 03</div>
-      <h3 class="r-title">LP Microseismicity as a Probe of Volcanic Fluid Dynamics and Eruption Potential</h3>
-      <p class="r-body">ML detection at the Galápagos Islands uncovers a class of LP microseismicity triggered by remote earthquakes and invisible to conventional monitoring. This cryptic fluid activity modulates caldera stability and can facilitate eruptions — establishing a mechanistic link between distal seismic forcing, subsurface fluid redistribution, and volcanic hazard.</p>
+      <h3 class="r-title">Volcanic Seismicity Characterisation and Relations to Volcanic Activity</h3>
+      <p class="r-body">Using template matching on a 12-year seismic dataset, we characterized DLPs and volcano-tectonic earthquakes across Alaska volcanoes. Frequency index differences between the two earthquake types enable effective automatic classification. Most DLPs exhibit non-repeating source mechanisms, and their occurrence shows limited correlation with magma water content, plate motion kinematics, or eruptive activity.</p>
       <div class="kp-row">
-        <span class="kp">LP microseismicity</span>
-        <span class="kp">Galápagos Islands</span>
-        <span class="kp">Earthquake triggering</span>
-        <span class="kp">Caldera eruptions</span>
+        <span class="kp">DLP earthquakes</span>
+        <span class="kp">Alaska volcanoes</span>
+        <span class="kp">12-year catalogue</span>
+        <span class="kp">Inflation periods</span>
+        <span class="kp">LP vs VT seismicity</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ PUBLICATIONS ══════════════════════════════════ -->
+<!-- PUBLICATIONS -->
 <section class="section white" id="publications">
   <p class="eyebrow">PEER-REVIEWED OUTPUT</p>
   <h2 class="sec-title">Publications</h2>
   <p class="sec-sub">All three primary research articles published in Nature Index journals.</p>
   <div class="pub-list">
 
+    <!-- P1 Nature Comms -->
     <div class="pub-card">
       <div class="pub-visual">
-        <div class="pub-fig"><div class="pub-fig-hint">KEY FIGURE</div></div>
         <!--
-          Replace the div above with:
-          <img src="images/fig-natcomms.png" alt="Key finding"
-               style="width:100%;aspect-ratio:1;object-fit:contain;border-radius:6px;">
+          Save the Galápagos station map as: images/fig-pub1.png
+          Then replace the div below with: <img src="images/fig-pub1.png" alt="Sierra Negra station map">
         -->
+        <img src="images/fig-pub1.png" alt="Sierra Negra station map">
       </div>
       <div class="pub-body">
         <div class="pub-year">2026</div>
@@ -555,16 +521,23 @@
           <span class="badge idx">Nature Index</span>
           <span class="badge note">Invited seminar — BGS 2026</span>
         </div>
-        <!-- ── Please replace "et al." with the full author list ── -->
-        <p class="pub-authors"><strong>Zilin Song</strong>, Andrew F. Bell, Peter C. LaFemina, et al.</p>
-        <p class="pub-abstract">ML detection of LP microseismicity at the Galápagos Islands reveals earthquake-triggered fluid activity that modulates caldera stability and can facilitate eruptions — a mechanistic link invisible to conventional monitoring and with broad implications for volcanic hazard assessment at poorly instrumented systems.</p>
+        <p class="pub-authors">
+          <strong>Zilin Song</strong>, Andrew F. Bell, Peter C. LaFemina,
+          Sophie Butcher, Mario Ruiz, Stephen Hernández,
+          Patricia M. Gregg, Yen Joe Tan
+        </p>
         <p class="pub-doi">DOI: <a href="https://doi.org/10.1038/s41467-026-68645-4" target="_blank">10.1038/s41467-026-68645-4</a></p>
       </div>
     </div>
 
+    <!-- P2 JGR -->
     <div class="pub-card">
       <div class="pub-visual">
-        <div class="pub-fig"><div class="pub-fig-hint">KEY FIGURE</div></div>
+        <!--
+          Save the Alaska plate map as: images/fig-pub2.png
+          Then replace with: <img src="images/fig-pub2.png" alt="Alaska volcanoes map">
+        -->
+        <img src="images/fig-pub2.png" alt="Alaska volcanoes map">
       </div>
       <div class="pub-body">
         <div class="pub-year">2025</div>
@@ -574,14 +547,18 @@
           <span class="badge idx">Nature Index</span>
         </div>
         <p class="pub-authors"><strong>Zilin Song</strong>, Yen Joe Tan</p>
-        <p class="pub-abstract">Twelve-year systematic analysis of deep LP earthquakes across multiple Alaska volcanic centres characterises depth distributions, spectral properties, and temporal patterns of LP seismicity. LP activity co-varies with geodetic indicators of magmatic loading, demonstrating its utility as a sensitive, network-wide proxy for subsurface volcanic unrest.</p>
         <p class="pub-doi">DOI: <a href="https://doi.org/10.1029/2024JB030444" target="_blank">10.1029/2024JB030444</a></p>
       </div>
     </div>
 
+    <!-- P3 GRL -->
     <div class="pub-card">
       <div class="pub-visual">
-        <div class="pub-fig"><div class="pub-fig-hint">KEY FIGURE</div></div>
+        <!--
+          Save the Akutan bathymetry map as: images/fig-pub3.png
+          Then replace with: <img src="images/fig-pub3.png" alt="Akutan station map">
+        -->
+        <img src="images/fig-pub3.png" alt="Akutan station map">
       </div>
       <div class="pub-body">
         <div class="pub-year">2023</div>
@@ -591,7 +568,6 @@
           <span class="badge idx">Nature Index</span>
         </div>
         <p class="pub-authors"><strong>Zilin Song</strong>, Yen Joe Tan, Diana C. Roman</p>
-        <p class="pub-abstract">Comparative analysis at Akutan Volcano demonstrates LP earthquake rates more faithfully track geodetically-constrained magma influx episodes than VT seismicity — providing a quantitative basis for LP-centred monitoring protocols at arc volcanoes with recurrent unrest.</p>
         <p class="pub-doi">DOI: <a href="https://doi.org/10.1029/2022GL101987" target="_blank">10.1029/2022GL101987</a></p>
       </div>
     </div>
@@ -599,7 +575,7 @@
   </div>
 </section>
 
-<!-- ═══════ SKILLS & EXPERIENCE ══════════════════════════ -->
+<!-- SKILLS & EXPERIENCE -->
 <section class="section tinted" id="experience">
   <p class="eyebrow">CAPABILITIES</p>
   <h2 class="sec-title">Skills &amp; Experience</h2>
@@ -614,6 +590,9 @@
         <span class="pill">ObsPy</span>
         <span class="pill">GMT</span>
         <span class="pill">Multi-GPU training</span>
+        <span class="pill">HPC cluster computing</span>
+        <span class="pill">Seismic signal processing</span>
+        <span class="pill">Earthquake catalogue analysis</span>
         <span class="pill">TB-scale data processing</span>
         <span class="pill">TabPFN</span>
       </div>
@@ -624,7 +603,7 @@
         <span class="pill hi">Scientific writing</span>
         <span class="pill hi">Peer review (×3 journals)</span>
         <span class="pill">University teaching (TA)</span>
-        <span class="pill">OBS deployment — ocean fieldwork</span>
+        <span class="pill">OBS ocean deployment</span>
         <span class="pill">Grant writing</span>
         <span class="pill">English (proficient)</span>
         <span class="pill">Mandarin (native)</span>
@@ -633,119 +612,98 @@
     </div>
   </div>
 
+  <!-- Education timeline -->
   <div class="exp-block">
     <div class="exp-label">EDUCATION &amp; POSITIONS</div>
-    <div class="timeline">
-      <div class="titem">
-        <div class="tyear">2025–now</div>
-        <div class="tbody">
-          <div class="tbody-main">Postdoctoral Research Associate — Heriot-Watt University, Edinburgh, UK</div>
-          <div class="tbody-sub">AI4NetZero &nbsp;·&nbsp; School of Energy, Geoscience, Infrastructure and Society &nbsp;·&nbsp; Cross-domain transfer learning for automated seismicity detection</div>
-        </div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-year">2025 — present</div>
+        <div class="tl-main">Postdoctoral Research Associate</div>
+        <div class="tl-inst">Heriot-Watt University, Edinburgh, UK</div>
       </div>
-      <div class="titem">
-        <div class="tyear">2020–2025</div>
-        <div class="tbody">
-          <div class="tbody-main">Ph.D. — The Chinese University of Hong Kong, Hong Kong S.A.R.</div>
-          <div class="tbody-sub">Dept. of Earth and Environmental Sciences &nbsp;·&nbsp; Advisor: Prof. Yen Joe Tan &nbsp;·&nbsp; Thesis: "Characteristics and Relations between Deep Long-period Earthquakes and Volcanic Activities" &nbsp;·&nbsp; TA: Hydrogeology (2020, 2021); Volcanoes: Formation, Unrest, and Eruption (2021)</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">2020 — 2025</div>
+        <div class="tl-main">Ph.D.</div>
+        <div class="tl-inst">The Chinese University of Hong Kong, Hong Kong S.A.R., China</div>
       </div>
-      <div class="titem">
-        <div class="tyear">Jan–Jun 2024</div>
-        <div class="tbody">
-          <div class="tbody-main">Visiting Ph.D. — University of Edinburgh, UK</div>
-          <div class="tbody-sub">School of Geosciences &nbsp;·&nbsp; Advisor: Dr. Andrew F. Bell &nbsp;·&nbsp; ML detection of LP microseismicity at Galápagos → Nature Communications (2026)</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">Jan – Jun 2024</div>
+        <div class="tl-main">Visiting Ph.D.</div>
+        <div class="tl-inst">University of Edinburgh, Edinburgh, UK</div>
       </div>
-      <div class="titem">
-        <div class="tyear">2016–2020</div>
-        <div class="tbody">
-          <div class="tbody-main">B.S. — Northeast Normal University, China</div>
-          <div class="tbody-sub">School of Geographical Sciences &nbsp;·&nbsp; GPA: 4.0/4.5 &nbsp;·&nbsp; Formal pedagogical training in curriculum design and classroom instruction</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">2016 — 2020</div>
+        <div class="tl-main">B.S.</div>
+        <div class="tl-inst">Northeast Normal University, Jilin, China</div>
       </div>
-      <div class="titem">
-        <div class="tyear">Jul–Oct 2019</div>
-        <div class="tbody">
-          <div class="tbody-main">Visiting Undergraduate — McMaster University, Canada</div>
-          <div class="tbody-sub">School of Engineering Practice and Technology &nbsp;·&nbsp; Advisor: Prof. Gail Krantzberg &nbsp;·&nbsp; Mitacs Globalink Research Internship</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">Jul – Oct 2019</div>
+        <div class="tl-main">Visiting Undergraduate</div>
+        <div class="tl-inst">McMaster University, Ontario, Canada</div>
       </div>
     </div>
   </div>
 
+  <!-- Funding timeline -->
   <div class="exp-block">
     <div class="exp-label">FUNDING &amp; GRANTS</div>
-    <div class="timeline">
-      <div class="titem">
-        <div class="tyear">2026</div>
-        <div class="tbody">
-          <div class="tbody-main">Conference Travel Grant</div>
-          <div class="tbody-sub">2nd International Workshop on Swarm-like Seismicity &nbsp;·&nbsp; Les Houches, France</div>
-        </div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <div class="tl-main">Conference Travel Grant</div>
+        <div class="tl-inst">Les Houches, France</div>
       </div>
-      <div class="titem">
-        <div class="tyear">2025</div>
-        <div class="tbody">
-          <div class="tbody-main">NERC AI for Environmental Science — Phase 1 &nbsp;<span style="font-size:10px;color:var(--faint)">(under review)</span></div>
-          <div class="tbody-sub">Named Researcher &nbsp;·&nbsp; £200K–400K &nbsp;·&nbsp; AI-driven seismic interpretation for hazard monitoring</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-main">NERC AI for Environmental Science — Phase 1</div>
+        <div class="tl-inst">Heriot-Watt University <span style="color:var(--faint);font-size:11px">(under review)</span></div>
       </div>
-      <div class="titem">
-        <div class="tyear">2023</div>
-        <div class="tbody">
-          <div class="tbody-main">Reaching Out Award (IMPAC) — The Chinese University of Hong Kong</div>
-          <div class="tbody-sub">Visiting research at the University of Edinburgh</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">2023</div>
+        <div class="tl-main">Reaching Out Award (IMPAC)</div>
+        <div class="tl-inst">The Chinese University of Hong Kong</div>
       </div>
-      <div class="titem">
-        <div class="tyear">2020</div>
-        <div class="tbody">
-          <div class="tbody-main">Full Ph.D. Studentship — The Chinese University of Hong Kong</div>
-          <div class="tbody-sub">Full tuition fees and stipend</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">2020</div>
+        <div class="tl-main">Full Ph.D. Studentship</div>
+        <div class="tl-inst">The Chinese University of Hong Kong</div>
       </div>
-      <div class="titem">
-        <div class="tyear">2019</div>
-        <div class="tbody">
-          <div class="tbody-main">Mitacs Globalink Research Internship — McMaster University, Canada</div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">2019</div>
+        <div class="tl-main">Mitacs Globalink Research Internship</div>
+        <div class="tl-inst">McMaster University, Canada</div>
       </div>
     </div>
   </div>
 
+  <!-- Fieldwork & Service -->
   <div class="exp-block" style="margin-bottom:0">
     <div class="exp-label">FIELDWORK &amp; ACADEMIC SERVICE</div>
-    <div class="timeline">
-      <div class="titem">
-        <div class="tyear">2022</div>
-        <div class="tbody">
-          <div class="tbody-main">Research Cruise — RV Marcus G. Langseth, Axial Seamount, North Pacific</div>
-          <div class="tbody-sub">6-day expedition &nbsp;·&nbsp; Deployed 5 broadband + 10 short-period ocean-bottom seismometers and a hydrophone mooring</div>
-        </div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-year">2022</div>
+        <div class="tl-main">Research Cruise — RV Marcus G. Langseth</div>
+        <div class="tl-sub">Axial Seamount, North Pacific &nbsp;·&nbsp; 6-day expedition &nbsp;·&nbsp; deployed 5 broadband + 10 short-period OBS and a hydrophone mooring</div>
       </div>
-      <div class="titem">
-        <div class="tyear">Ongoing</div>
-        <div class="tbody">
-          <div class="tbody-main">Invited Peer Reviewer</div>
-          <div class="tbody-sub"><em>The Seismic Record</em> &nbsp;·&nbsp; <em>Earthquake Science</em> &nbsp;·&nbsp; <em>Seismological Research Letters</em></div>
-        </div>
+      <div class="tl-item">
+        <div class="tl-year">Ongoing</div>
+        <div class="tl-main">Invited Peer Reviewer</div>
+        <div class="tl-sub"><em>The Seismic Record</em> &nbsp;·&nbsp; <em>Earthquake Science</em> &nbsp;·&nbsp; <em>Seismological Research Letters</em></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ CONTACT ════════════════════════════════════════ -->
+<!-- CONTACT -->
 <section class="section white" id="contact">
   <p class="eyebrow">GET IN TOUCH</p>
   <h2 class="sec-title">Contact</h2>
   <div class="contact-grid">
-
     <div>
       <p class="contact-blurb">
-        I am always happy to hear from fellow researchers, potential collaborators, and anyone curious about volcanic seismology or geophysical AI. Whether you have a question about our work or a collaboration in mind —
+        I am always happy to hear from fellow researchers and potential collaborators. Whether you have a question about our work or a collaboration in mind —
         <em>feel free to leave a message</em>.
-        I read every submission and will get back to you as soon as I can.
+        I will get back to you as soon as I can.
       </p>
       <div class="contact-details">
         <div class="cdet">
@@ -754,24 +712,18 @@
         </div>
         <div class="cdet">
           <span class="cdet-lbl">ORCID</span>
-          <span class="cdet-val">
-            <a href="https://orcid.org/0000-0001-6312-4180" target="_blank">0000-0001-6312-4180</a>
-          </span>
+          <span class="cdet-val"><a href="https://orcid.org/0000-0001-6312-4180" target="_blank">0000-0001-6312-4180</a></span>
         </div>
         <div class="cdet">
           <span class="cdet-lbl">SCHOLAR</span>
-          <!-- Replace # with your Google Scholar URL -->
           <span class="cdet-val"><a href="#" target="_blank">Google Scholar ↗</a></span>
         </div>
         <div class="cdet">
           <span class="cdet-lbl">GROUP</span>
-          <span class="cdet-val">
-            <a href="https://ai4netzero.github.io/team/" target="_blank">AI4NetZero, Heriot-Watt University ↗</a>
-          </span>
+          <span class="cdet-val"><a href="https://ai4netzero.github.io/team/" target="_blank">AI4NetZero, Heriot-Watt ↗</a></span>
         </div>
       </div>
     </div>
-
     <div class="form-card">
       <p class="form-intro">
         If you are interested in our research or have any collaboration enquiries,
@@ -779,26 +731,23 @@
         I will reply as promptly as I can.
       </p>
       <!--
-        ════════════════════════════════════════════════════════════
-        ACTIVATING THIS FORM (free, ~2 minutes):
-        1. Go to https://formspree.io and sign up
-        2. Create a new form (name it anything)
-        3. Copy your unique endpoint, e.g. https://formspree.io/f/abcd1234
-        4. Replace YOUR_FORM_ID below with that ID
-        ════════════════════════════════════════════════════════════
+        ACTIVATE THIS FORM (free, 2 min):
+        1. formspree.io → sign up → New Form
+        2. Copy endpoint e.g. https://formspree.io/f/abcd1234
+        3. Replace YOUR_FORM_ID below
       -->
       <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="fg">
-          <label class="fl" for="name">YOUR NAME</label>
-          <input id="name" class="fi" type="text" name="name" placeholder="e.g. Jane Smith" required>
+          <label class="fl">YOUR NAME</label>
+          <input class="fi" type="text" name="name" placeholder="e.g. Jane Smith" required>
         </div>
         <div class="fg">
-          <label class="fl" for="email">YOUR EMAIL</label>
-          <input id="email" class="fi" type="email" name="email" placeholder="your@email.com" required>
+          <label class="fl">YOUR EMAIL</label>
+          <input class="fi" type="email" name="email" placeholder="your@email.com" required>
         </div>
         <div class="fg">
-          <label class="fl" for="message">MESSAGE</label>
-          <textarea id="message" class="ft" name="message" placeholder="Tell me about your question or collaboration idea..." required></textarea>
+          <label class="fl">MESSAGE</label>
+          <textarea class="ft" name="message" placeholder="Tell me about your question or collaboration idea..." required></textarea>
         </div>
         <button type="submit" class="fsub">Send Message →</button>
         <div class="form-success" id="form-success">
@@ -806,15 +755,26 @@
         </div>
       </form>
     </div>
-
   </div>
 </section>
 
 <script>
+  /* Scroll-triggered fade-up for research cards */
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rblock').forEach(el => obs.observe(el));
+
+  /* Contact form */
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
   if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const res = await fetch(form.action, {
         method: 'POST', body: new FormData(form),
